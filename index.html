@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<title>Портфель · 3D</title>
+<link rel="stylesheet" href="vendor/fonts/fonts.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="scene"></canvas>
+
+  <!-- Верхняя панель со сводкой -->
+  <header class="topbar ui">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.4 20.4 7.2 20.4 16.8 12 21.6 3.6 16.8 3.6 7.2Z" stroke="#E8EEF9" stroke-width="1.25" stroke-linejoin="round"/>
+          <path d="M12 12 20.4 7.2M12 12 3.6 7.2M12 12 12 21.6" stroke="#E8EEF9" stroke-width="1.25" stroke-linejoin="round" opacity=".5"/>
+          <path d="M12 2.4 20.4 7.2 12 12 3.6 7.2Z" fill="#4FC8EF"/>
+        </svg>
+      </span>
+      <div>
+        <div class="brand-row">
+          <h1>Портфель</h1>
+          <span class="tag">демо-данные</span>
+        </div>
+        <p class="brand-sub">3D-структура активов</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-label">Стоимость</span>
+        <span class="stat-value mono" id="totalValue">—</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">За день</span>
+        <span class="stat-value mono" id="totalChange">—</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Инструментов</span>
+        <span class="stat-value mono" id="totalCount">—</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Список инструментов -->
+  <aside class="panel ui" id="panel">
+    <div class="panel-head">
+      <span class="panel-title">Состав портфеля</span>
+      <span class="panel-meta" id="panelMeta"></span>
+      <button class="panel-close" id="panelClose" aria-label="Свернуть">&times;</button>
+    </div>
+    <div class="panel-list" id="panelList"></div>
+  </aside>
+
+  <!-- Управление снизу -->
+  <div class="dock ui">
+    <p class="hint" id="hint"></p>
+    <div class="dock-actions">
+      <button class="icon-btn" id="panelToggle" aria-label="Состав портфеля" aria-expanded="false" aria-controls="panel">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="btn" id="modeBtn">Разобрать куб</button>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+  <div class="tip" id="tip"></div>
+
+  <div class="grid" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/OrbitControls.umd.js"></script>
+  <script src="vendor/RoundedBoxGeometry.umd.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
